@@ -2,103 +2,120 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-  }
+:root {
+  --background: #ffffff;
+  --card-background: #ffffff;
+  --primary: #004B93;
+  --secondary: #E31837;
+  --text: #1a1a1a;
+  --border: #e5e7eb;
+  --pepsi-blue: #004B93;
+  --pepsi-red: #E31837;
+  --pepsi-light-blue: #0078D4;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+/* Pepsi gradient backgrounds */
+.pepsi-gradient {
+  background: linear-gradient(135deg, var(--pepsi-blue) 0%, var(--pepsi-light-blue) 100%);
 }
 
-/* Custom Pepsi styles */
-.gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#004B93] via-[#0066CC] to-[#E31837];
+.pepsi-gradient-reverse {
+  background: linear-gradient(135deg, var(--pepsi-red) 0%, var(--pepsi-blue) 100%);
 }
 
-.gradient-border {
-  @apply relative rounded-xl overflow-hidden;
-  background: linear-gradient(to right, #004B93, #0066CC, #E31837);
-  padding: 1px;
+.pepsi-gradient-subtle {
+  background: linear-gradient(135deg, 
+    rgba(0, 75, 147, 0.1) 0%,
+    rgba(227, 24, 55, 0.1) 100%
+  );
 }
 
-.gradient-border > * {
-  @apply bg-white rounded-xl;
+.modern-card {
+  background: var(--card-background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
 }
 
-.pepsi-button {
-  @apply bg-gradient-to-r from-[#004B93] via-[#0066CC] to-[#E31837] hover:opacity-90 transition-opacity;
+.modern-card.gradient-card {
+  background: linear-gradient(135deg,
+    rgba(0, 75, 147, 0.05) 0%,
+    rgba(227, 24, 55, 0.05) 100%
+  );
 }
 
-.pepsi-card {
-  @apply transition-all duration-300 hover:shadow-lg;
-}
-
-.pepsi-card:hover {
-  @apply border-[#004B93]/30;
+.modern-card:hover {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   transform: translateY(-2px);
+}
+
+.modern-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.modern-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(0,75,147,0.1);
+}
+
+.modern-button {
+  background: linear-gradient(135deg, var(--pepsi-blue) 0%, var(--pepsi-light-blue) 100%);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  width: 100%;
+  border: none;
+}
+
+.modern-button:hover {
+  background: linear-gradient(135deg, 
+    var(--pepsi-blue) 0%, 
+    var(--pepsi-light-blue) 70%
+  );
+  transform: translateY(-1px);
+}
+
+.modern-button.secondary {
+  background: linear-gradient(135deg, var(--pepsi-red) 0%, #FF1A1A 100%);
+}
+
+.modern-button.secondary:hover {
+  background: linear-gradient(135deg, var(--pepsi-red) 0%, #FF1A1A 70%);
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0;
+}
+
+.section-description {
+  color: #666;
+  margin-top: 4px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--pepsi-blue) 0%, var(--pepsi-red) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
